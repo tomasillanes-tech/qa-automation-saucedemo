@@ -34,6 +34,7 @@ mis-test/
 ├── test_eliminar_carrito.py       # Caso de eliminar producto del carrito
 ├── test_ordenar_productos.py      # Caso de ordenamiento por precio
 ├── test_checkout_completo.py      # Test E2E de flujo de compra completo
+├── test_agregar_varios_productos.py      # Caso de ordenamiento por precio
 └── README.md
 ```
 
