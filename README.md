@@ -20,6 +20,7 @@ Suite de automatización de pruebas funcionales sobre [SauceDemo](https://www.sa
 | `test_eliminar_producto_del_carrito` | Verifica que un producto se puede eliminar del carrito y el contador se actualiza correctamente |
 | `test_ordenar_por_precio_menor_a_mayor` | Verifica que el ordenamiento de productos por precio funcione correctamente |
 | `test_checkout_completo` | Test E2E: simula el flujo completo de compra, desde login hasta la confirmación del pedido |
+| `test_agregar_varios_productos_al_carrito` | Verifica que se pueden agregar múltiples productos y que el carrito refleje la cantidad y el contenido correcto |
 
 ## 📂 Estructura del proyecto
 
