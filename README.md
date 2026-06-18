@@ -17,25 +17,23 @@ Suite de automatización de pruebas funcionales sobre [SauceDemo](https://www.sa
 | `test_login_credenciales_incorrectas` | Verifica que el sistema rechaza credenciales inválidas con el mensaje de error correspondiente |
 | `test_usuario_bloqueado` | Verifica que un usuario bloqueado no puede iniciar sesión |
 | `test_agregar_producto_al_carrito` | Verifica el flujo de login y agregado de un producto al carrito de compras |
+| `test_eliminar_producto_del_carrito` | Verifica que un producto se puede eliminar del carrito y el contador se actualiza correctamente |
+| `test_ordenar_por_precio_menor_a_mayor` | Verifica que el ordenamiento de productos por precio funcione correctamente |
+| `test_checkout_completo` | Test E2E: simula el flujo completo de compra, desde login hasta la confirmación del pedido |
 
 ## 📂 Estructura del proyecto
 
-## 🚀 Cómo ejecutar los tests
-
-1. Clonar el repositorio
-```bash
-git clone https://github.com/tomasillanes-tech/qa-automation-saucedemo.git
-cd qa-automation-saucedemo
 ```
-
-2. Instalar dependencias
-```bash
-pip install selenium pytest webdriver-manager
-```
-
-3. Ejecutar toda la suite
-```bash
-pytest -v
+mis-test/
+├── conftest.py                    # Fixture que gestiona el navegador (setup/teardown)
+├── test_login.py                  # Caso de login exitoso
+├── test_login_fallido.py          # Caso de login con credenciales incorrectas
+├── test_usuario_bloqueado.py      # Caso de usuario bloqueado
+├── test_carrito.py                # Caso de agregar producto al carrito
+├── test_eliminar_carrito.py       # Caso de eliminar producto del carrito
+├── test_ordenar_productos.py      # Caso de ordenamiento por precio
+├── test_checkout_completo.py      # Test E2E de flujo de compra completo
+└── README.md
 ```
 
 ## 📌 Buenas prácticas aplicadas
@@ -50,4 +48,4 @@ pytest -v
 **Tomás Illanes**  
 QA Analyst con +4 años de experiencia, en proceso de especialización en automatización de pruebas.
 
-[LinkedIn](https://www.linkedin.com/in/tom%C3%A1s-illanes-vidal-6711b557/) ·
+[LinkedIn](https://www.linkedin.com/in/tom%C3%A1s-illanes-vidal-6711b557/) · [GitHub](https://github.com/tomasillanes-tech)
