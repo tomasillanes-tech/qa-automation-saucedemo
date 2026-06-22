@@ -1,15 +1,23 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture
 def driver():
-    # Esto se ejecuta ANTES de cada test
-    nav = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    opciones = Options()
+    opciones.add_argument("--headless=new")  # Corre sin interfaz visual
+    opciones.add_argument("--no-sandbox")
+    opciones.add_argument("--disable-dev-shm-usage")
+    opciones.add_argument("--window-size=1920,1080")
+
+    nav = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=opciones
+    )
     nav.get("https://www.saucedemo.com/")
-    
-    yield nav  # Aquí se "pausa" y se ejecuta el test
-    
-    # Esto se ejecuta DESPUÉS de cada test (limpieza automática)
+
+    yield nav
+
     nav.quit()
