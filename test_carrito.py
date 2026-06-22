@@ -12,11 +12,13 @@ def test_agregar_producto_al_carrito(driver):
 
     driver.find_element(By.ID, "add-to-cart-sauce-labs-backpack").click()
 
-    contador = driver.find_element(By.CSS_SELECTOR, ".shopping_cart_badge").text
-    assert contador == "1"
+    badge = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".shopping_cart_badge")))
+    assert badge.text == "1"
 
     driver.find_element(By.CSS_SELECTOR, ".shopping_cart_link").click()
     wait.until(EC.url_contains("cart"))
 
-    nombre_producto = driver.find_element(By.CSS_SELECTOR, ".inventory_item_name").text
+    nombre_producto = wait.until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, ".inventory_item_name"))
+    ).text
     assert nombre_producto == "Sauce Labs Backpack"
