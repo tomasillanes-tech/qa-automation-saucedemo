@@ -14,8 +14,10 @@ def test_agregar_varios_productos_al_carrito(driver):
     driver.find_element(By.ID, "add-to-cart-sauce-labs-bike-light").click()
     driver.find_element(By.ID, "add-to-cart-sauce-labs-bolt-t-shirt").click()
 
-    badge = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".shopping_cart_badge")))
-    assert badge.text == "3"
+    # Espera hasta que el badge muestre exactamente "3", no solo que exista
+    wait.until(
+        lambda d: d.find_element(By.CSS_SELECTOR, ".shopping_cart_badge").text == "3"
+    )
 
     driver.find_element(By.CSS_SELECTOR, ".shopping_cart_link").click()
     wait.until(EC.url_contains("cart"))
