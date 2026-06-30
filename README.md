@@ -22,19 +22,51 @@ Suite de automatización de pruebas funcionales sobre [SauceDemo](https://www.sa
 | `test_checkout_completo` | Test E2E: simula el flujo completo de compra, desde login hasta la confirmación del pedido |
 | `test_agregar_varios_productos_al_carrito` | Verifica que se pueden agregar múltiples productos y que el carrito refleje la cantidad y el contenido correcto |
 
+## 🎭 Suite adicional con Playwright
+
+Además de la suite principal con Selenium, el proyecto incluye una segunda suite implementada con **Playwright**, una herramienta moderna de automatización con esperas inteligentes integradas, cada vez más demandada en el mercado.
+
+Ubicación: carpeta `playwright-tests/`
+
+| Test | Descripción |
+|------|-------------|
+| `test_login_exitoso` | Verifica que un usuario válido puede iniciar sesión correctamente |
+| `test_login_credenciales_incorrectas` | Verifica que el sistema rechaza credenciales inválidas |
+| `test_agregar_producto_al_carrito` | Verifica el flujo de agregar un producto y su reflejo en el carrito |
+| `test_checkout_completo` | Test E2E: flujo completo de compra, desde login hasta confirmación |
+| `test_ordenar_por_precio_menor_a_mayor` | Verifica el ordenamiento correcto de productos por precio |
+
+### Cómo ejecutar la suite de Playwright
+
+```bash
+cd playwright-tests
+pip install pytest-playwright
+playwright install
+pytest -v
+```
+
+### Selenium vs Playwright
+
+| Aspecto | Selenium | Playwright |
+|---|---|---|
+| Esperas | Manuales (`WebDriverWait`) | Automáticas e integradas |
+| Sintaxis | Más extensa | Más compacta |
+| Multi-navegador | Sí, requiere configuración extra | Sí, nativo (Chromium, Firefox, WebKit) |
+| Adopción en el mercado | Estándar histórico | Tendencia creciente |
+
 ## 📂 Estructura del proyecto
 
 ```
 mis-test/
-├── conftest.py                    # Fixture que gestiona el navegador (setup/teardown)
-├── test_login.py                  # Caso de login exitoso
-├── test_login_fallido.py          # Caso de login con credenciales incorrectas
-├── test_usuario_bloqueado.py      # Caso de usuario bloqueado
-├── test_carrito.py                # Caso de agregar producto al carrito
-├── test_eliminar_carrito.py       # Caso de eliminar producto del carrito
-├── test_ordenar_productos.py      # Caso de ordenamiento por precio
-├── test_checkout_completo.py      # Test E2E de flujo de compra completo
-├── test_agregar_varios_productos.py      # Caso de ordenamiento por precio
+├── conftest.py                        # Fixture que gestiona el navegador (setup/teardown)
+├── test_login.py                      # Caso de login exitoso
+├── test_login_fallido.py              # Caso de login con credenciales incorrectas
+├── test_usuario_bloqueado.py          # Caso de usuario bloqueado
+├── test_carrito.py                    # Caso de agregar producto al carrito
+├── test_eliminar_carrito.py           # Caso de eliminar producto del carrito
+├── test_ordenar_productos.py          # Caso de ordenamiento por precio
+├── test_checkout_completo.py          # Test E2E de flujo de compra completo
+├── test_agregar_varios_productos.py   # Caso de ordenamiento por precio
 └── README.md
 ```
 
