@@ -1,12 +1,11 @@
 from playwright.sync_api import Page, expect
+from pages.login_page import LoginPage
 
 def test_login_credenciales_incorrectas(page: Page):
-    page.goto("https://www.saucedemo.com/")
+    login_page = LoginPage(page)
     
-    page.fill("#user-name", "standard_user")
-    page.fill("#password", "clave_incorrecta")
-    page.click("#login-button")
+    login_page.ir_a_pagina()
+    login_page.iniciar_sesion("standard_user", "clave_incorrecta")
     
-    error = page.locator("[data-test='error']")
+    error = login_page.obtener_mensaje_error()
     expect(error).to_contain_text("do not match")
-    print("✅ Login fallido detectado correctamente")
